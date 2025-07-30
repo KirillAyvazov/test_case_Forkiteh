@@ -17,10 +17,10 @@ async def get_request(
     """
         Эндпоинт для получения списка запросов с пагинацией
     """
-    # try:
-    return await repo.get_request(params)
-    #except Exception:
-    #    raise HTTPException(status_code=500, detail="Internal server error")
+    try:
+        return await repo.get_request(params)
+    except Exception:
+        raise HTTPException(status_code=500, detail="Internal server error")
 
 
 @router.post("", response_model=InfoSchema, status_code=200)
